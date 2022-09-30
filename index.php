@@ -20,7 +20,20 @@
 			</div>
 		</header>
 		<main>
-
+			<div class="container">
+				<p class="subtitle">Classifica</p>
+				<ol>
+					<?php foreach ($classifica as $sfidante) : ?>
+						<li><?= $sfidante->nome ?></li>
+					<?php endforeach; ?>
+				</ol>
+			</div>
+			<div class="container">
+				<p class="subtitle">Formazioni</p>
+			</div>
+			<div class="container">
+				<p class="subtitle">Ultimi Dati</p>
+			</div>
 		</main>
 	</body>
 </html>

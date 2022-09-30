@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <?php include 'connection.php' ?>
 
+<!-- Login error = Empty Cookies -->
+
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">

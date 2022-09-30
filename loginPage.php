@@ -19,8 +19,21 @@
                 <a class="thisPage">Login</a>
             </div>
         </header>
-        <main>
-			
+		<main>
+			<form class="container login" action="/add.php" method="post">
+				<p class="subtitle">Login</p>
+				<div>
+					<span>Username</span>
+					<input type="text" name="username">
+				</div>
+				<div>
+					<span>Password</span>
+					<input type="password" name="password">
+				</div>
+				<div>
+					<input type="submit" value="Log In">
+				</div>
+			</form>
         </main>
 	</body>
 </html>
