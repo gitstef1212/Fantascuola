@@ -1,7 +1,5 @@
 <?php
 
-    namespace PathsCode;
-
     class DatabaseTable {
 
         private $PDO;
