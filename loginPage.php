@@ -20,7 +20,7 @@
             </div>
         </header>
 		<main>
-			<form class="container login" action="/add.php" method="post">
+			<form class="container login" action="/login.php" method="post">
 				<p class="subtitle">Login</p>
 				<div>
 					<span>Username</span>

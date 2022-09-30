@@ -13,10 +13,3 @@
     $criteri = $critTab->findAll();
     $partecipanti = $partTab->findAll();
     $voti = $votiTab->findAll();
-
-    $classifica = [
-        1 => $sfidanti[0],
-        2 => $sfidanti[1],
-        3 => $sfidanti[2]
-    ];
-    
