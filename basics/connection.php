@@ -28,12 +28,16 @@
     ];
 
     $nomiSfidanti = [];
+    // $sfidantiOrdinati = [];
     foreach ($sfidanti as $sfidante) {
-        $nomiSfidanti[] = $sfidante->nome;
+        $nomiSfidanti[$sfidante->id] = $sfidante->nome;
     }
-
+    
     foreach ($giocatori as $key => $giocatore) {
         if (in_array($giocatore->nome, $nomiSfidanti)) {
+            // $sfidantiOrdinati[$giocatore->id] = $giocatore;
             unset($giocatori[$key]);
         }
     }
+
+    $puntiLimitati = $puntiTab->findAll('id DESC', 42);

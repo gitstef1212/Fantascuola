@@ -142,3 +142,21 @@ select, option {
 
     font-size: 1.25em !important;
 }
+
+.last42 {
+    margin-top: 21px;
+    font-size: 0.8em;
+}
+
+.last42 td {
+    padding-top: 15px;
+}
+
+.last42 td {
+    margin-top: 21px;
+    font-size: 1.25em;
+}
+
+.last42 tr {
+    border: 1px solid black;
+}

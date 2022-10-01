@@ -43,6 +43,38 @@
 			</div>
 			<div class="container">
 				<p class="subtitle">Ultimi Dati</p>
+				<table class="last42">
+					<col width="15%">
+					<col width="10%">
+					<col width="15%">
+					<col width="15%">
+					<col width="15%">
+					<col width="15%">
+					<col width="15%">
+
+					<thead>
+						<th>Sfidante</th>
+						<th>Punti</th>
+						<th>Dettagli</th>
+						<th>Giocatore</th>
+						<th>Materia</th>
+						<th>Data</th>
+						<th>Autore</th>
+					</thead>
+					<tbody>
+						<?php foreach ($puntiLimitati as $punto) : ?>
+							<tr>
+								<td><?= explode(" ", $nomiSfidanti[$punto->sfidante])[0] ?></td>
+								<td><?= $punto->puntiii ?></td>
+								<td><?= $punto->evento ?></td>
+								<td><?= $giocatori[$punto->giocatore - 1]->nome?></td>
+								<td><?= empty($punto->materia) ? '---' : $materie[$punto->materia - 1]->nome ?></td>
+								<td><?= implode("/", array_reverse(explode("-", $punto->data))) ?></td>
+								<td><?= explode(" ", $nomiSfidanti[$punto->autore])[0] ?></td>
+							</tr>
+						<?php endforeach; ?>
+					</tbody>
+				</table>
 			</div>
 		</main>
 	</body>
@@ -59,10 +91,13 @@
 		Week's End (No Giocatore, No Materia)
 
 	Cosa contiene il LOG?
+		Sfidante
 		Punti
-		[Tipo Evento]
-		[Interrogato]
+		Tipo Evento
+		[Giocatore]
 		[Materia]
+		Data
+		Autore
 
 	Ordine all'interno della Formazione
 -->
