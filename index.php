@@ -26,6 +26,7 @@
 				<a class="thisPage">Classifica</a>
 				<a href="addPage.php">Aggiungi</a>
 				<a href="loginPage.php">Login</a>
+				<a href="logout.php">Logout</a>
 			</div>
 		</header>
 		<main>
@@ -46,3 +47,22 @@
 		</main>
 	</body>
 </html>
+
+<!--
+
+	Cosa genera LOG?
+		Interrogato + Modificatore Voto
+		Volontario
+		Giustifica
+		Infamata
+		Doppietta / Tripletta (No Giocatore)
+		Week's End (No Giocatore, No Materia)
+
+	Cosa contiene il LOG?
+		Punti
+		[Tipo Evento]
+		[Interrogato]
+		[Materia]
+
+	Ordine all'interno della Formazione
+-->

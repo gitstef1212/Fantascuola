@@ -17,6 +17,7 @@
                 <a href="index.php">Classifica</a>
                 <a href="addPage.php">Aggiungi</a>
                 <a class="thisPage">Login</a>
+				<a href="logout.php">Logout</a>
             </div>
         </header>
 		<main>

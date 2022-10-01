@@ -1,7 +1,13 @@
 <!DOCTYPE html>
-<?php include 'basics/connection.php' ?>
 
-<!-- Login error = Empty Cookies -->
+<?php 
+	include 'basics/connection.php';
+
+	$user = $sfidTab->find('username', $username);
+	if (!$user || $user[0]->password != $password) {
+		header('Location: /loginPage.php'); exit();
+	}
+?>
 
 <script>
 	function checkItalics(el) {
@@ -25,13 +31,14 @@
                 <a href="index.php">Classifica</a>
                 <a class="thisPage">Aggiungi</a>
                 <a href="loginPage.php">Login</a>
+				<a href="logout.php">Logout</a>
             </div>
         </header>
         <main>
 			<div class="container">
 				<p class="subtitle">Aggiungi Dati come <?= $username ?>...</p>
 			</div>
-			<div class="container">
+			<form class="container" action="/add.php" method="post">
 				<table>
 					<col width="30%">
 					<col width="30%">
@@ -41,53 +48,44 @@
 						<th>Materia</th>
 						<th>Giocatore</th>
 						<th>Evento</th>
-						<th>V?</th>
+						<th>V (+1)</th>
 					</thead>
 					<tbody>
 						<?php for ($i = 0; $i < 10; $i++) : ?>
 							<tr>
 								<td>
 									<select name="data[<?=$i?>][materia]" onchange="checkItalics(this)" class="italics">
-										<option disabled selected value="0" class="italics">Seleziona</option>
+										<option disabled selected value="0" class="italics">-------</option>
 										<?php foreach ($materie as $materia) : ?>
 											<option value="<?= $materia->id ?>" class="not-italics"><?= $materia->nome ?></option>
 										<?php endforeach; ?>
 									</select>
 								</td>
-								<td></td>
-								<td></td>
+								<td>
+									<select name="data[<?=$i?>][giocatore]" onchange="checkItalics(this)" class="italics">
+										<option disabled selected value="0" class="italics">-------</option>
+										<?php foreach ($giocatori as $giocatore) : ?>
+											<option value="<?= $giocatore->id ?>" class="not-italics"><?= $giocatore->id . ") " .  $giocatore->nome ?></option>
+										<?php endforeach; ?>
+									</select>
+								</td>
+								<td>
+									<select name="data[<?=$i?>][evento]" onchange="checkItalics(this)" class="italics">
+										<option disabled selected value="0" class="italics">-------</option>
+										<?php foreach ($criteriSelezionabili as $indice => $nome) : ?>
+											<option value="<?= $indice ?>" class="not-italics"><?= $nome ?></option>
+										<?php endforeach; ?>
+									</select>
+								</td>
 								<td><input type=checkbox name="data[<?=$i?>][volontario]" class="checkbox"></td>
 							</tr>
 						<?php endfor; ?>
 					</tbody>
 				</table>
-			</d>
+				<div class="submit-button-div container">
+					<input type=submit class="submit-button" value="Salva"></input>
+				</div>
+			</form>
         </main>
 	</body>
 </html>
-
-<!--
-    Login Error = Back to Home
-
-	Selezione
-		Giocatore
-		Fascia Voto
-
-	La Materia si preserva fino a cambiamento
-	
-	Cosa genera LOG?
-		Interrogato + Modificatore Voto
-		Volontario
-		Giustifica
-		Infamata
-		Doppietta / Tripletta (No Giocatore)
-		Week's End (No Giocatore, No Materia)
-
-	Cosa contiene il LOG?
-		Punti
-		[Tipo Evento]
-		[Interrogato]
-		[Materia]
-
-	Ordine all'interno della Formazione
--->
