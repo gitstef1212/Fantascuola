@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <?php 
-	include 'connection.php';
+	include 'basics/connection.php';
     
 	$classifica = [
         1 => $sfidanti[0],
@@ -33,7 +33,7 @@
 				<p class="subtitle">Classifica</p>
 				<ol>
 					<?php foreach ($classifica as $sfidante) : ?>
-						<li><?= $sfidante->nome ?></li>
+						<li></li>
 					<?php endforeach; ?>
 				</ol>
 			</div>

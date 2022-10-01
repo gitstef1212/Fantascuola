@@ -59,7 +59,7 @@ main {
     background-color: white;
 }
 
-.container:not(:first-of-type) {
+main > *:not(:first-child) {
     margin-top: 42px;
 }
 
@@ -93,4 +93,32 @@ input {
 
 input[type=submit] {
     padding: 0 20px;
+}
+
+table {
+    width: 100%;
+    table-layout: fixed;
+
+    text-align: center;
+}
+
+tbody {
+    font-size: 0.825em;
+}
+
+select, option {
+    text-align: center;
+}
+
+.italics {
+    font-style: italic;
+}
+
+.not-italics {
+    font-style: normal !important;
+}
+
+.checkbox {
+    width:21px;
+    height:21px;
 }

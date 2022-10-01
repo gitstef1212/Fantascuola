@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<?php include 'connection.php' ?>
+<?php include 'basics/connection.php' ?>
 
 <html lang="en">
 	<head>
