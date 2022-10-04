@@ -24,36 +24,41 @@
         $evento = intval($evento);
         $volonario = $sData['volontario'] ?? false;
 
-        // Calcola Punti
-        $evento = $critTab->findById($evento);
-        $puntiTotalizzati = $evento->punti;
-        $siglaEvento = $evento->sigla;
+        if ($giocatore->attivo) {
 
-        // Volontario
-        if ($volonario && in_array($evento->id, [1, 2, 3])) {
-            $puntiTotalizzati++;
-            $siglaEvento .= ' + V';
-        }
-
-        // Aggiorna Punti Giocatore
-        $giocatore = $giocTab->findById($idGiocatore) ?? null;
-        if ($giocatore) {
-            $giocTab->update([
-                'id' => $idGiocatore,
-                'punti' => (($giocatore->punti ?? 0) + $puntiTotalizzati)
+            // Calcola Punti
+            $evento = $critTab->findById($evento);
+            $puntiTotalizzati = $evento->punti;
+            $siglaEvento = $evento->sigla;
+    
+            // Volontario
+            if ($volonario && in_array($evento->id, [1, 2, 3])) {
+                $puntiTotalizzati++;
+                $siglaEvento .= ' + V';
+            }
+    
+            // Aggiorna Punti Giocatore
+            $giocatore = $giocTab->findById($idGiocatore) ?? null;
+            if ($giocatore) {
+                $giocTab->update([
+                    'id' => $idGiocatore,
+                    'punti' => (($giocatore->punti ?? 0) + $puntiTotalizzati)
+                ]);
+            }
+    
+            // Aggiorna Punti
+            $puntiTab->insert([
+                'giocatore' => $idGiocatore,
+                'sfidante' => $giocatore->proprietario,
+                'evento' => $siglaEvento,
+                'puntiii' => $puntiTotalizzati,
+                'materia' => ($materia ?? null) == 0 ? null : $materia,
+                'data' => new DateTime(),
+                'autore' => $autore,
             ]);
+
         }
 
-        // Aggiorna Punti
-        $puntiTab->insert([
-            'giocatore' => $idGiocatore,
-            'sfidante' => $giocatore->proprietario,
-            'evento' => $siglaEvento,
-            'puntiii' => $puntiTotalizzati,
-            'materia' => ($materia ?? null) == 0 ? null : $materia,
-            'data' => new DateTime(),
-            'autore' => $autore,
-        ]);
     }
 
     header('Location: /addPage.php'); exit();
