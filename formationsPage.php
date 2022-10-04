@@ -32,7 +32,7 @@
 			<div class="container">
 				<p class="subtitle biggus">Formazioni</p>
             </div>
-            <div>
+            <form class="container" action="/formation.php" method="post">
                 <table>
                     <col width="<?= 100 / count($sfidanti) ?>%">
                     <col width="<?= 100 / count($sfidanti) ?>%">
@@ -58,34 +58,10 @@
                         <?php endfor; ?>
                     </tbody>
                 </table>
-                <script> 
-                
-                    function generateOptions() {
-                        sfidanti = <?= json_encode($sfidanti) ?>;
-                        giocatoriPerSfidante = <?= json_encode($giocatoriPerSfidante) ?>;
-
-                        sfidanti.forEach(sfidante => {
-                            selectList = document.getElementsByClassName("formazioni[<?= $sfidante->id ?>]");
-                            selected = [];
-                            
-                            for (let selection of selectList) {
-                                for (let option of selection) {
-                                    option.disabled = false;
-                                }
-                            }
-
-                            for (let selection of selectList) {
-                                for (let option of selection) {
-                                    option.disabled = true;
-                                }
-                            }
-                        });
-                    }
-
-                    generateOptions(); 
-                
-                </script>
-            </div>
+                <div class="container margin-top center-flex">
+                    <input type="submit" value="Salva">
+                </div>
+            </form>
 		</main>
 	</body>
 </html>

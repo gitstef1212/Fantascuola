@@ -72,8 +72,19 @@ main > *:not(:first-child) {
     margin-top: 42px;
 }
 
+.margin-top {
+    margin-top: 42px;
+}
+
 .container {
     width: 100%;
+}
+
+.center-flex {
+    display: flex;
+    justify-content: center;
+
+    margin-left: 0 !important;
 }
 
 .subtitle {

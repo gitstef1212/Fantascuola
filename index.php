@@ -4,9 +4,9 @@
 	include 'basics/connection.php';
     
 	$classifica = [
-        1 => $sfidanti[0],
-        2 => $sfidanti[1],
-        3 => $sfidanti[2]
+        1 => $sfidanti[1],
+        2 => $sfidanti[2],
+        3 => $sfidanti[3]
     ];
 ?>
 
