@@ -38,6 +38,14 @@ body > *, header div {
     width: 100%;
 }
 
+.biggus {
+    font-size: 1.8em !important;
+}
+
+.big-enough {
+    font-size: 1.4em !important;
+}
+
 header {
     background-color: #a1a1a1 /* #a1a1a1 */;
 }
@@ -46,7 +54,7 @@ header div {
     flex-direction: row !important;
     justify-content: space-around;
     
-    width: 36%;
+    width: 60%;
     padding: 20px;
 }
 

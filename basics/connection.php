@@ -41,3 +41,13 @@
     }
 
     $puntiLimitati = $puntiTab->findAll('id DESC', 42);
+
+    $giocatoriPerSfidante = [];
+    foreach ($sfidanti as $key => $sfidante) {
+        $giocatoriPerSfidante[$sfidante->id] = [];
+    }
+
+    foreach ($giocatori as $key => $giocatore) {
+        $giocatoriPerSfidante[$giocatore->proprietario][] = $giocatore;
+    }
+    

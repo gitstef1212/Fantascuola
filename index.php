@@ -17,7 +17,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="shortcut icon" href="media/icon.jpg" type="image/ico" />
 		<link rel="stylesheet" href="style/style.css">
-		<title>Fantainterrogazioni 4H</title>
+		<title>Fanta Interrogazioni 4H</title>
 	</head>
 
 	<body>
@@ -25,6 +25,7 @@
 			<div>
 				<a class="thisPage">Classifica</a>
 				<a href="addPage.php">Aggiungi</a>
+				<a href="formationsPage.php">Formazioni</a>
 				<a href="loginPage.php">Login</a>
 				<a href="logout.php">Logout</a>
 			</div>
