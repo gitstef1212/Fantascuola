@@ -41,6 +41,30 @@
 			</div>
 			<div class="container">
 				<p class="subtitle">Formazioni</p>
+				<table class="formations-home-table">
+					<?php for ($i = 0; $i < count($sfidanti); $i++) : ?>
+						<col width="<?= 100 / count($sfidanti) ?>%">
+					<?php endfor;?>
+
+					<thead>
+						<tr>
+							<?php foreach ($sfidanti as $sfidante) : ?>
+								<th><?= $sfidante->nome ?></th>
+							<?php endforeach; ?>
+						</tr>
+					</thead>
+
+					<tbody>
+						<?php for ($i = 0; $i < (count($giocatori) / count ($sfidanti)); $i ++) : ?>
+							<tr>
+								<?php foreach ($sfidanti as $idSfid => $sfidante) : ?>
+									<?php $gio = $giocatoriPerSfidante[$idSfid][$i]; ?>
+									<td class="bold <?= $gio->attivo ? 'giocAttivo' : 'giocPanchina' ?>"><?= $gio->nome ?></td>
+								<?php endforeach; ?>
+							</tr>
+						<?php endfor; ?>
+					</tbody>
+				</table>
 			</div>
 			<div class="container">
 				<p class="subtitle">Ultimi Dati</p>

@@ -162,6 +162,17 @@ select, option {
     font-size: 1.25em !important;
 }
 
+.formations-home-table {
+    margin-top: 21px;
+    font-size: 0.8em;
+}
+
+.formations-home-table td {
+    padding-top: 15px;
+    margin-top: 21px;
+    font-size: 1.25em;
+}
+
 .last42 {
     margin-top: 21px;
     font-size: 0.8em;
@@ -178,4 +189,16 @@ select, option {
 
 .last42 tr {
     border: 1px solid black;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.giocAttivo {
+    color: rgb(12, 162, 12);
+}
+
+.giocPanchina {
+    color: rgb(255, 174, 0)
 }

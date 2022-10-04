@@ -21,9 +21,9 @@
 	<body>
 		<header>
 			<div>
-				<a class="index.php">Classifica</a>
+				<a href="index.php">Classifica</a>
 				<a href="addPage.php">Aggiungi</a>
-				<a href="thisPage">Formazioni</a>
+				<a class="thisPage">Formazioni</a>
 				<a href="loginPage.php">Login</a>
 				<a href="logout.php">Logout</a>
 			</div>

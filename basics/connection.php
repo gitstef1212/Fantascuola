@@ -44,17 +44,17 @@
     $puntiLimitati = $puntiTab->findAll('id DESC', 42);
 
     // Giocatori
-    $giocatori = $giocTab->findAll();
-    foreach ($giocatori as $key => $giocatore) {
-        if (in_array($giocatore->nome, $nomiSfidanti)) {
-            unset($giocatori[$key]);
+    $rawGiocatori = $giocTab->findAll();
+    foreach ($rawGiocatori as $key => $rawGiocatore) {
+        if (!(in_array($rawGiocatore->nome, $nomiSfidanti))) {
+            $giocatori[$rawGiocatore->id] = $rawGiocatore;
         }
     }
 
     // Giocatori Per Sfidante
     $giocatoriPerSfidante = [];
-    foreach ($sfidanti as $key => $sfidante) {
-        $giocatoriPerSfidante[$sfidante->id] = [];
+    foreach ($sfidanti as $id => $sfidante) {
+        $giocatoriPerSfidante[$id] = [];
     }
 
     foreach ($giocatori as $key => $giocatore) {
