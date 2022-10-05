@@ -92,7 +92,7 @@
 								<td><?= explode(" ", $nomiSfidanti[$punto->sfidante])[0] ?></td>
 								<td><?= $punto->puntiii ?></td>
 								<td><?= $punto->evento ?></td>
-								<td><?= $giocatori[$punto->giocatore - 1]->nome?></td>
+								<td><?= $giocatori[$punto->giocatore]->nome?></td>
 								<td><?= empty($punto->materia) ? '---' : $materie[$punto->materia - 1]->nome ?></td>
 								<td><?= implode("/", array_reverse(explode("-", $punto->data))) ?></td>
 								<td><?= explode(" ", $nomiSfidanti[$punto->autore])[0] ?></td>

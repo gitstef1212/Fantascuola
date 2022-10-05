@@ -12,7 +12,8 @@
     $datas = $_POST['data'] ?? [];
 
     $materia = 0;
-    foreach ($datas as $sData) {
+    foreach ($datas as $key => $sData) {
+
         $idGiocatore = $sData['giocatore'] ?? null;
         $evento = $sData['evento'] ?? null;
         
@@ -23,6 +24,8 @@
         $idGiocatore = intval($idGiocatore);
         $evento = intval($evento);
         $volonario = $sData['volontario'] ?? false;
+
+        $giocatore = $giocTab->findById($idGiocatore) ?? null;
 
         if ($giocatore->attivo) {
 
@@ -38,14 +41,29 @@
             }
     
             // Aggiorna Punti Giocatore
-            $giocatore = $giocTab->findById($idGiocatore) ?? null;
             if ($giocatore) {
                 $giocTab->update([
                     'id' => $idGiocatore,
-                    'punti' => (($giocatore->punti ?? 0) + $puntiTotalizzati)
+                    'punti' => (($giocatore->punti ?? 0) + $puntiTotalizzati),
+                    'ultimoVoto' => new DateTime()
                 ]);
             }
-    
+
+            // Calcola Bonus Doppietta / Tripletta
+            $votiOggiGioc = 0;
+            $votiOggi = $puntiTab->find('data', date( 'Y-m-d', time()));
+            foreach ($votiOggi as $vO) {
+                if ($vO->giocatore == $giocatore->id && !in_array($vO->evento, .gd(hkmfk)()..)) {
+                    $votiOggiGioc += 1;
+                }
+            }
+
+            // Calcola Bonus Doppietta / Tripletta
+            if ($votiOggiGioc == 1 || $votiOggiGioc == 2) {
+                $puntiTotalizzati += ($votiOggiGioc == 1 ? $BONUS_DOPPIETTA : $BONUS_TRIPLETTA);
+                $siglaEvento .= ($votiOggiGioc == 1 ? ' + D' : ' + T');
+            } 
+
             // Aggiorna Punti
             $puntiTab->insert([
                 'giocatore' => $idGiocatore,
@@ -56,6 +74,15 @@
                 'data' => new DateTime(),
                 'autore' => $autore,
             ]);
+            
+            // Aggiorna Punti Sfidante
+            $sfidant = $sfidTab->findById($giocatore->proprietario) ?? null;
+            if ($sfidant) {
+                $sfidTab->update([
+                    'id' => $sfidant->id,
+                    'punti' => (($sfidant->punti ?? 0) + $puntiTotalizzati)
+                ]);
+            }
 
         }
 

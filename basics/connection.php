@@ -23,6 +23,9 @@
         4 => "GIUSTIFICA (-3)",
         8 => "INFAMATA (-5)"
     ];
+    
+    $BONUS_DOPPIETTA = 5;
+    $BONUS_TRIPLETTA = 7 - $BONUS_DOPPIETTA;
 
     // Materie
     $materie = $matTab->findAll();
