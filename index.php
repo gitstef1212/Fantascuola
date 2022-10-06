@@ -2,12 +2,6 @@
 
 <?php 
 	include 'basics/connection.php';
-    
-	$classifica = [
-        1 => $sfidanti[1],
-        2 => $sfidanti[2],
-        3 => $sfidanti[3]
-    ];
 ?>
 
 <html lang="en">
@@ -33,9 +27,9 @@
 		<main>
 			<div class="container">
 				<p class="subtitle">Classifica</p>
-				<ol>
+				<ol class="classifica">
 					<?php foreach ($classifica as $sfidante) : ?>
-						<li></li>
+						<li>&nbsp;<?= $sfidante->nome ?> - <?= $sfidante->punti ?? 0 ?> Punti</li>
 					<?php endforeach; ?>
 				</ol>
 			</div>
@@ -105,25 +99,3 @@
 		</main>
 	</body>
 </html>
-
-<!--
-
-	Cosa genera LOG?
-		Interrogato + Modificatore Voto
-		Volontario
-		Giustifica
-		Infamata
-		Doppietta / Tripletta (No Giocatore)
-		Week's End (No Giocatore, No Materia)
-
-	Cosa contiene il LOG?
-		Sfidante
-		Punti
-		Tipo Evento
-		[Giocatore]
-		[Materia]
-		Data
-		Autore
-
-	Ordine all'interno della Formazione
--->

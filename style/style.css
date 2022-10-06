@@ -93,7 +93,28 @@ main > *:not(:first-child) {
 }
 
 ol {
-    padding-left: 32px;
+    padding-left: 64px;
+}
+
+.classifica {
+    font-size: 1.125em;
+}
+
+.classifica li {
+    margin-top: 24px;
+}
+
+.classifica :first-child {
+    color: rgb(12, 162, 12);
+    font-weight: bold;
+}
+
+.classifica :nth-child(2) {
+    /* color: rgb(255, 230, 0); */
+}
+
+.classifica :last-child {
+    /* color: rgb(255, 0, 0); */
 }
 
 .login {

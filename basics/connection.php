@@ -49,6 +49,9 @@
         $nomiSfidantiNomi[] = explode(" ", $nomeSfidante)[0];
     }
 
+    // Classifica
+    $classifica = $sfidTab->findAll('punti DESC');
+
     // Punti
     $punti = $puntiTab->findAll();
     $puntiLimitati = $puntiTab->findAll('id DESC', 42);
