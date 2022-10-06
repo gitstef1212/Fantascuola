@@ -23,7 +23,7 @@
         4 => "GIUSTIFICA (-3)",
         8 => "INFAMATA (-5)"
     ];
-    
+
     $BONUS_DOPPIETTA = 5;
     $BONUS_TRIPLETTA = 7 - $BONUS_DOPPIETTA;
 
@@ -37,9 +37,16 @@
         $sfidanti[$rawSfidante->id] = $rawSfidante;
     }
 
+    // Nomi Sfidanti
     $nomiSfidanti = [];
     foreach ($sfidanti as $sfidante) {
         $nomiSfidanti[$sfidante->id] = $sfidante->nome;
+    }
+
+    // Nomi Sfidanti Nomi
+    $nomiSfidantiNomi = [];
+    foreach (array_values($nomiSfidanti) as $nomeSfidante) {
+        $nomiSfidantiNomi[] = explode(" ", $nomeSfidante)[0];
     }
 
     // Punti

@@ -53,13 +53,13 @@
             $votiOggiGioc = 0;
             $votiOggi = $puntiTab->find('data', date( 'Y-m-d', time()));
             foreach ($votiOggi as $vO) {
-                if ($vO->giocatore == $giocatore->id && !in_array($vO->evento, .gd(hkmfk)()..)) {
+                if ($vO->giocatore == $giocatore->id && in_array($vO->evento[0], ['<', '6', '>'])) {
                     $votiOggiGioc += 1;
                 }
             }
 
             // Calcola Bonus Doppietta / Tripletta
-            if ($votiOggiGioc == 1 || $votiOggiGioc == 2) {
+            if (in_array($siglaEvento[0], ['<', '6', '>']) && ($votiOggiGioc == 1 || $votiOggiGioc == 2)) {
                 $puntiTotalizzati += ($votiOggiGioc == 1 ? $BONUS_DOPPIETTA : $BONUS_TRIPLETTA);
                 $siglaEvento .= ($votiOggiGioc == 1 ? ' + D' : ' + T');
             } 

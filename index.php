@@ -88,11 +88,12 @@
 					</thead>
 					<tbody>
 						<?php foreach ($puntiLimitati as $punto) : ?>
+							<?php $pName = explode(" ", $giocatori[$punto->giocatore]->nome); ?> 
 							<tr>
 								<td><?= explode(" ", $nomiSfidanti[$punto->sfidante])[0] ?></td>
 								<td><?= $punto->puntiii ?></td>
 								<td><?= $punto->evento ?></td>
-								<td><?= $giocatori[$punto->giocatore]->nome?></td>
+								<td><?=  $pName[0] . (in_array($pName[0], $nomiSfidantiNomi) ? (" " . $pName[1][0]) : '') ?></td>
 								<td><?= empty($punto->materia) ? '---' : $materie[$punto->materia - 1]->nome ?></td>
 								<td><?= implode("/", array_reverse(explode("-", $punto->data))) ?></td>
 								<td><?= explode(" ", $nomiSfidanti[$punto->autore])[0] ?></td>
