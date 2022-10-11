@@ -29,7 +29,7 @@
 				<p class="subtitle">Classifica</p>
 				<ol class="classifica">
 					<?php foreach ($classifica as $sfidante) : ?>
-						<li>&nbsp;<?= $sfidante->nome ?> - <?= $sfidante->puntiSettimana ?? 0 ?> Punti</li>
+						<li <?= ($sfidante->punti ?? 0) >= $classifica[0]->punti ? 'class=first-position' : '' ?>>&nbsp;<?= $sfidante->nome ?> - <?= $sfidante->punti ?? 0 ?> Punti (<?= $sfidante->puntiSettimana ?? 0 ?>)</li>
 					<?php endforeach; ?>
 				</ol>
 			</div>

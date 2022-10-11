@@ -104,7 +104,7 @@ ol {
     margin-top: 24px;
 }
 
-.classifica :first-child {
+.classifica .first-position {
     color: rgb(12, 162, 12);
     font-weight: bold;
 }
