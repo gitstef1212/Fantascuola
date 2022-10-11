@@ -2,8 +2,8 @@
 
     include "basics/DatabaseTable.php";
 
-    $pdo = new PDO('mysql:host=localhost;dbname=fantint', 'fantuser', 'fanta123');
-    
+    $pdo = new \PDO('mysql:host=localhost;dbname=fantint', 'fantuser', 'fanta123');
+
     $sfidTab = new DatabaseTable($pdo, 'sfidanti', 'id');
     $critTab = new DatabaseTable($pdo, 'criteri', 'id');
     $giocTab = new DatabaseTable($pdo, 'giocatori', 'id');
