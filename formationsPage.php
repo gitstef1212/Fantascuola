@@ -2,11 +2,12 @@
 
 <?php 
 	include 'basics/connection.php';
+
+	$user = $sfidTab->find('username', $username);
+	if (!$user || $user[0]->password != $password) {
+		header('Location: /loginPage.php'); exit();
+	}
 ?>
-
-<script>
-
-</script>
 
 <html lang="en">
 	<head>
