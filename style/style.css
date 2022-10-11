@@ -185,13 +185,16 @@ select, option {
 
 .formations-home-table {
     margin-top: 21px;
-    font-size: 0.8em;
+}
+
+.formations-home-table th {
+    font-size: 0.9em;
 }
 
 .formations-home-table td {
     padding-top: 15px;
     margin-top: 21px;
-    font-size: 1.25em;
+    font-size: 1.125em;
 }
 
 .last42 {
