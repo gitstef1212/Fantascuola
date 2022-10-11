@@ -80,7 +80,7 @@
             if ($sfidant) {
                 $sfidTab->update([
                     'id' => $sfidant->id,
-                    'punti' => (($sfidant->punti ?? 0) + $puntiTotalizzati)
+                    'puntiSettimana' => (($sfidant->punti ?? 0) + $puntiTotalizzati)
                 ]);
             }
 

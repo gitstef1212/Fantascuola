@@ -65,25 +65,3 @@
 		</main>
 	</body>
 </html>
-
-<!--
-
-	Cosa genera LOG?
-		Interrogato + Modificatore Voto
-		Volontario
-		Giustifica
-		Infamata
-		Doppietta / Tripletta (No Giocatore)
-		Week's End (No Giocatore, No Materia)
-
-	Cosa contiene il LOG?
-		Sfidante
-		Punti
-		Tipo Evento
-		[Giocatore]
-		[Materia]
-		Data
-		Autore
-
-	Ordine all'interno della Formazione
--->
