@@ -109,13 +109,15 @@ ol {
     font-weight: bold;
 }
 
+/*
 .classifica :nth-child(2) {
-    /* color: rgb(255, 230, 0); */
+    color: rgb(255, 230, 0);
 }
 
 .classifica :last-child {
-    /* color: rgb(255, 0, 0); */
+    color: rgb(255, 0, 0);
 }
+*/
 
 .login {
     display: flex;
