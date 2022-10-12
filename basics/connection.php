@@ -52,6 +52,12 @@
 
             // echo ' || ' . $rawSfidante->puntiSettimana . ' ' . $puntiMaggiori . ' ' . $puntiAggiunti;
             
+            $puntiTab->insert([
+                'sfidante' => $rawSfidante->id,
+                'puntiiiii' => $puntiAggiunti,
+                'data' => date('Y/m/d', strtotime("this week"))
+            ]);
+
             $sfidTab->update([
                 'id' => $rawSfidante->id,
                 'punti' => ($rawSfidante->punti ?? 0) + $puntiAggiunti,
