@@ -7,6 +7,7 @@
     $sfidTab = new DatabaseTable($pdo, 'sfidanti', 'id');
     $critTab = new DatabaseTable($pdo, 'criteri', 'id');
     $giocTab = new DatabaseTable($pdo, 'giocatori', 'id');
+    $puntiSettTab = new DatabaseTable($pdo, 'puntiSettimana', 'id');
     $puntiTab = new DatabaseTable($pdo, 'punti', 'id');
     $matTab = new DatabaseTable($pdo, 'materie', 'id');
 
@@ -30,6 +31,36 @@
     // Materie
     $materie = $matTab->findAll();
 
+    // Punti Settimanali => Punti
+    $rawSfidanti = $sfidTab->findAll('puntiSettimana DESC');
+    if (strtotime("now") >= strtotime($rawSfidanti[0]->dataConversione) + 604800) {
+        
+        $puntiMaggiori = $rawSfidanti[0]->puntiSettimana;
+        $puntiAggiunti = 3;
+
+        print_r($sfidanti);
+        foreach ($rawSfidanti as $rawSfidante) {
+            if ($rawSfidante->puntiSettimana < $puntiMaggiori) {
+                $puntiMaggiori = $rawSfidante->puntiSettimana;
+
+                if ($puntiAggiunti == 3) {
+                    $puntiAggiunti = 2;
+                } else {
+                    $puntiAggiunti = 0;
+                }
+            }
+
+            // echo ' || ' . $rawSfidante->puntiSettimana . ' ' . $puntiMaggiori . ' ' . $puntiAggiunti;
+            
+            $sfidTab->update([
+                'id' => $rawSfidante->id,
+                'punti' => ($rawSfidante->punti ?? 0) + $puntiAggiunti,
+                'puntiSettimana' => 0,
+                'dataConversione' => date('Y/m/d', strtotime("this week"))
+            ]);
+        }
+    } 
+    
     // Sfidanti
     $rawSfidanti = $sfidTab->findAll();
     $sfidanti = [];
@@ -53,8 +84,7 @@
     $classifica = $sfidTab->findAll('punti DESC');
 
     // Punti
-    $punti = $puntiTab->findAll();
-    $puntiLimitati = $puntiTab->findAll('id DESC', 42);
+    $puntiLimitati = $puntiSettTab->findAll('id DESC', 42);
 
     // Giocatori
     $rawGiocatori = $giocTab->findAll();

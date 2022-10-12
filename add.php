@@ -65,7 +65,7 @@
             } 
 
             // Aggiorna Punti
-            $puntiTab->insert([
+            $puntiSettTab->insert([
                 'giocatore' => $idGiocatore,
                 'sfidante' => $giocatore->proprietario,
                 'evento' => $siglaEvento,
