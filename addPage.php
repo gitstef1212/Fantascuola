@@ -22,7 +22,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="shortcut icon" href="media/icon.jpg" type="image/ico" />
         <link rel="stylesheet" href="style/style.css">
-		<title>Fanta Interrogazioni 4H</title>
+		<title>Fantascuola 4H</title>
 	</head>
 
 	<body>
